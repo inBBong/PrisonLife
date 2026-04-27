@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using TMPro;
@@ -25,6 +26,12 @@ public class PrisonManager : MonoBehaviour
     public Vector3 expandedScale;           // 확장 후 Scale
     public float expandAnimDuration = 0.5f; // 확장 애니메이션 시간
 
+    [Header("Prisoner Spread Range")]
+    public float normalSpreadRange = 2.5f;   // 기본 퍼짐 범위 (6x6 기준)
+    public float expandedSpreadRange = 5f;   // 확장 후 퍼짐 범위 (12x12 기준)
+
+    public float CurrentSpreadRange { get; private set; }
+
     public int CurrentCount { get; private set; }
     public int MaxCapacity { get; private set; }
     public bool IsFull => CurrentCount >= MaxCapacity;
@@ -39,6 +46,7 @@ public class PrisonManager : MonoBehaviour
     void Start()
     {
         UpdateUI();
+        CurrentSpreadRange = normalSpreadRange;
 
         // 확장 존은 처음엔 숨김
         if (expandUpgradeZone != null)
@@ -73,6 +81,14 @@ public class PrisonManager : MonoBehaviour
         return true;
     }
 
+    // 수용소 안 수감자 목록 관리
+    private List<Prisoner> prisonersInside = new List<Prisoner>();
+
+    public void RegisterPrisoner(Prisoner p)
+    {
+        prisonersInside.Add(p);
+    }
+
     public void ExpandCapacity()
     {
         if (MaxCapacity >= expandedCapacity) return;
@@ -80,15 +96,38 @@ public class PrisonManager : MonoBehaviour
         UpdateUI();
         Debug.Log($"[PrisonManager] 수용소 확장 완료! {CurrentCount}/{MaxCapacity}");
 
+        // 퍼짐 범위 확장
+        CurrentSpreadRange = expandedSpreadRange;
+
         // 감옥 트랜스폼 애니메이션
         if (prisonObject != null)
             StartCoroutine(ExpandPrisonAnimation());
+
+        // 기존 수감자들도 넓게 재배치
+        StartCoroutine(RedistributePrisoners());
+    }
+
+    IEnumerator RedistributePrisoners()
+    {
+        // 애니메이션 완료 후 재배치
+        yield return new WaitForSeconds(expandAnimDuration + 0.2f);
+
+        foreach (Prisoner p in prisonersInside)
+        {
+            if (p == null) continue;
+            p.MoveToRandomPosition(CurrentSpreadRange);
+            yield return new WaitForSeconds(0.1f); // 순차적으로 이동
+        }
+
+        // null 제거
+        prisonersInside.RemoveAll(p => p == null);
     }
 
     System.Collections.IEnumerator ExpandPrisonAnimation()
     {
-        Vector3 startPos = prisonObject.position;
-        Vector3 startRot = prisonObject.eulerAngles;
+        // 로컬 기준으로 읽고 적용 (부모 영향 제거)
+        Vector3 startPos = prisonObject.localPosition;
+        Vector3 startRot = prisonObject.localEulerAngles;
         Vector3 startScale = prisonObject.localScale;
 
         float elapsed = 0f;
@@ -97,8 +136,8 @@ public class PrisonManager : MonoBehaviour
             float t = elapsed / expandAnimDuration;
             float smooth = Mathf.SmoothStep(0f, 1f, t);
 
-            prisonObject.position = Vector3.Lerp(startPos, expandedPosition, smooth);
-            prisonObject.eulerAngles = Vector3.Lerp(startRot, expandedRotation, smooth);
+            prisonObject.localPosition = Vector3.Lerp(startPos, expandedPosition, smooth);
+            prisonObject.localEulerAngles = Vector3.Lerp(startRot, expandedRotation, smooth);
             prisonObject.localScale = Vector3.Lerp(startScale, expandedScale, smooth);
 
             elapsed += Time.deltaTime;
@@ -106,8 +145,8 @@ public class PrisonManager : MonoBehaviour
         }
 
         // 최종값 정확히 적용
-        prisonObject.position = expandedPosition;
-        prisonObject.eulerAngles = expandedRotation;
+        prisonObject.localPosition = expandedPosition;
+        prisonObject.localEulerAngles = expandedRotation;
         prisonObject.localScale = expandedScale;
     }
 

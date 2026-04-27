@@ -15,7 +15,7 @@ C:/UnityProjects/SUPERCENT_Assignment
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-56129
+63463
 Successfully changed project path to: C:/UnityProjects/SUPERCENT_Assignment
 C:/UnityProjects/SUPERCENT_Assignment
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,15 +49,15 @@ C:/UnityProjects/SUPERCENT_Assignment
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [19024]  Target information:
+Player connection [13176]  Target information:
 
-Player connection [19024]  * "[IP] 172.30.1.2 [Port] 0 [Flags] 2 [Guid] 2343012102 [EditorId] 2343012102 [Version] 1048832 [Id] WindowsEditor(7,Bbong_pc) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [13176]  * "[IP] 192.168.0.48 [Port] 0 [Flags] 2 [Guid] 1551617818 [EditorId] 1551617818 [Version] 1048832 [Id] WindowsEditor(7,Bbong_pc) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [19024] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [19024] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [13176] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [13176] Host joined alternative multi-casting on [225.0.0.222:34997]...
 Input System module state changed to: Initialized.
 [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-Refreshing native plugins compatible for Editor in 29.93 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 34.02 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.62f2 (7670c08855a9)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/Resources/UnitySubsystems
@@ -72,47 +72,47 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56380
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56304
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.016170 seconds.
-- Loaded All Assemblies, in  0.541 seconds
+Registered in 0.020217 seconds.
+- Loaded All Assemblies, in  0.634 seconds
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 630 ms
+Android Extension - Scanning For ADB Devices 1065 ms
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.929 seconds
-Domain Reload Profiling: 1467ms
-	BeginReloadAssembly (223ms)
+- Finished resetting the current domain, in  2.258 seconds
+Domain Reload Profiling: 2884ms
+	BeginReloadAssembly (214ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (34ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (77ms)
-	LoadAllAssembliesAndSetupDomain (195ms)
-		LoadAssemblies (221ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (97ms)
+	LoadAllAssembliesAndSetupDomain (251ms)
+		LoadAssemblies (210ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (191ms)
-			TypeCache.Refresh (190ms)
-				TypeCache.ScanAssembly (173ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (929ms)
+		AnalyzeDomain (246ms)
+			TypeCache.Refresh (244ms)
+				TypeCache.ScanAssembly (223ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (2259ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (881ms)
+		SetupLoadedEditorAssemblies (2141ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (723ms)
-			SetLoadedEditorAssemblies (5ms)
+			InitializePlatformSupportModulesInManaged (1207ms)
+			SetLoadedEditorAssemblies (11ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (106ms)
-			ProcessInitializeOnLoadMethodAttributes (45ms)
+			BeforeProcessingInitializeOnLoad (6ms)
+			ProcessInitializeOnLoadAttributes (664ms)
+			ProcessInitializeOnLoadMethodAttributes (252ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -121,51 +121,51 @@ Domain Reload Profiling: 1467ms
 Worker process is ready to serve import requests
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.810 seconds
+- Loaded All Assemblies, in  3.559 seconds
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.605 seconds
-Domain Reload Profiling: 1411ms
-	BeginReloadAssembly (202ms)
+- Finished resetting the current domain, in  2.214 seconds
+Domain Reload Profiling: 5738ms
+	BeginReloadAssembly (792ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
+		DisableScriptedObjects (22ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (37ms)
-	RebuildCommonClasses (31ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (47ms)
-	LoadAllAssembliesAndSetupDomain (517ms)
-		LoadAssemblies (384ms)
+		CreateAndSetChildDomain (78ms)
+	RebuildCommonClasses (159ms)
+	RebuildNativeTypeToScriptingClass (40ms)
+	initialDomainReloadingComplete (242ms)
+	LoadAllAssembliesAndSetupDomain (2288ms)
+		LoadAssemblies (1764ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (234ms)
-			TypeCache.Refresh (212ms)
-				TypeCache.ScanAssembly (195ms)
-			ScanForSourceGeneratedMonoScriptInfo (14ms)
-			ResolveRequiredComponents (4ms)
-	FinalizeReload (606ms)
+		AnalyzeDomain (1054ms)
+			TypeCache.Refresh (974ms)
+				TypeCache.ScanAssembly (926ms)
+			ScanForSourceGeneratedMonoScriptInfo (48ms)
+			ResolveRequiredComponents (27ms)
+	FinalizeReload (2216ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (445ms)
+		SetupLoadedEditorAssemblies (1660ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (21ms)
-			SetLoadedEditorAssemblies (3ms)
+			InitializePlatformSupportModulesInManaged (88ms)
+			SetLoadedEditorAssemblies (8ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (62ms)
-			ProcessInitializeOnLoadAttributes (326ms)
-			ProcessInitializeOnLoadMethodAttributes (22ms)
-			AfterProcessingInitializeOnLoad (11ms)
-			EditorAssembliesLoaded (0ms)
+			BeforeProcessingInitializeOnLoad (257ms)
+			ProcessInitializeOnLoadAttributes (1181ms)
+			ProcessInitializeOnLoadMethodAttributes (70ms)
+			AfterProcessingInitializeOnLoad (55ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (12ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 10.83 ms, found 4 plugins.
+		AwakeInstancesAfterBackupRestoration (46ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.29 seconds
+Refreshing native plugins compatible for Editor in 95.28 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3774 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 22 unused Assets / (56.3 KB). Loaded Objects now: 4243.
+Unloading 3779 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 22 unused Assets / (56.3 KB). Loaded Objects now: 4248.
 Memory consumption went from 139.1 MB to 139.1 MB.
-Total: 3.696600 ms (FindLiveObjects: 0.277400 ms CreateObjectMapping: 0.125000 ms MarkObjects: 3.190700 ms  DeleteObjects: 0.102300 ms)
+Total: 8.351600 ms (FindLiveObjects: 0.474300 ms CreateObjectMapping: 0.257900 ms MarkObjects: 7.447700 ms  DeleteObjects: 0.169500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -183,101 +183,34 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 856294.647579 seconds.
-  path: Assets/makemakex
-  artifactKey: Guid(41d874d686dd60b49af6f2573c2b932d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/makemakex using Guid(41d874d686dd60b49af6f2573c2b932d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'eec947a014040d8aa04291739f7b29c6') in 0.008277 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 1.314084 seconds.
-  path: Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools
-  artifactKey: Guid(d23afd3a6de213341bad01ed7b58e538) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools using Guid(d23afd3a6de213341bad01ed7b58e538) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'fd7e9a567e8ed3123b493bdfbc89cb01') in 0.002079 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 1.842797 seconds.
-  path: Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment
-  artifactKey: Guid(6e85d8f812947f5459d149429585fd8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment using Guid(6e85d8f812947f5459d149429585fd8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '6b57755a02db547e7a97fc66b62d981a') in 0.001646 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 2.043097 seconds.
-  path: Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Models
-  artifactKey: Guid(7b797c9c2a0cd1445979480f9b115cd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Models using Guid(7b797c9c2a0cd1445979480f9b115cd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'e397f1a3186b35c05f96f744d1152875') in 0.001300 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.018312 seconds.
-  path: Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Models/Blade_Knife.fbx
-  artifactKey: Guid(00f028843b1c0c64d84503edad43858d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Models/Blade_Knife.fbx using Guid(00f028843b1c0c64d84503edad43858d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+  Time since last request: 927469.041403 seconds.
+  path: Assets/Prefab/Handcuff.prefab
+  artifactKey: Guid(61514a357e728ad478ed41f9c483901b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Handcuff.prefab using Guid(61514a357e728ad478ed41f9c483901b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'f987d54fbe305c08e944087e16965bbd') in 1.565840 seconds
+ -> (artifact id: 'fdc49bf5aa9b3fa9fa1a95ba41696a72') in 0.368960 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
+Number of asset objects unloaded after import = 17
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000061 seconds.
-  path: Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Models/Shovel.fbx
-  artifactKey: Guid(a7dd16782ca17fe41b1bb97ffd23db80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Models/Shovel.fbx using Guid(a7dd16782ca17fe41b1bb97ffd23db80) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Prefab/RockStack.prefab
+  artifactKey: Guid(c90b882393769e547816fe2900dcedad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/RockStack.prefab using Guid(c90b882393769e547816fe2900dcedad) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '3fafcfd8a885b41ddbaf5f89ba424cd3') in 0.731056 seconds
+ -> (artifact id: '7268ac66b44cfff5a35cf25bfeec77aa') in 0.080579 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
+Number of asset objects unloaded after import = 9
 ========================================================================
 Received Import Request.
-  Time since last request: 20.622444 seconds.
-  path: Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Prefabs
-  artifactKey: Guid(c739dff1ae0ee004fa8cf89de849d1b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Prefabs using Guid(c739dff1ae0ee004fa8cf89de849d1b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'a0086b4d1228018aa360f191ba210574') in 0.000991 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.041398 seconds.
-  path: Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Prefabs/Blade_Knife.prefab
-  artifactKey: Guid(b178733ff1c626a45b36924d749f8820) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Prefabs/Blade_Knife.prefab using Guid(b178733ff1c626a45b36924d749f8820) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Prefab/Rock.prefab
+  artifactKey: Guid(55f557d6ccc4596469a7d057261c7e0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefab/Rock.prefab using Guid(55f557d6ccc4596469a7d057261c7e0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
 [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'bd9fb74ac421f45827b09a3c1ced547a') in 0.597560 seconds
+ -> (artifact id: 'fe90ebf4a6c38263af51fb265592b463') in 0.041904 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 12
-========================================================================
-Received Import Request.
-  Time since last request: 0.000041 seconds.
-  path: Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Prefabs/Shovel.prefab
-  artifactKey: Guid(1014902fb829433408e44c3f452438e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Prefabs/Shovel.prefab using Guid(1014902fb829433408e44c3f452438e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '66f4a9f27f886b624f1233ea5555ca1a') in 0.575960 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 12
-========================================================================
-Received Import Request.
-  Time since last request: 0.000078 seconds.
-  path: Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Prefabs/Paint_Roller.prefab
-  artifactKey: Guid(0d27191d09d038944b08e441f1cf4169) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/makemakex/Maker_Tool_Set_DIY_Crafting_Tools/Environment/Prefabs/Paint_Roller.prefab using Guid(0d27191d09d038944b08e441f1cf4169) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '39bd572284dca41cf7e4f5fbbdcc8046') in 0.569562 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 12
+Number of asset objects unloaded after import = 10
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: 스레드 종료 또는 응용 프로그램 요청 때문에 I/O 작업이 취소되었습니다.
 AssetImportWorker is now disconnected from the server

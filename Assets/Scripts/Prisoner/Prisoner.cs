@@ -182,11 +182,69 @@ public class Prisoner : MonoBehaviour
         State = PrisonerState.InPrison;
         ownerQueue?.OnPrisonerEnteredPrison(this);
 
-        // NavMeshAgent 비활성화 (더 이상 이동 불필요)
-        if (agent != null) agent.enabled = false;
+        // 수용소 안에서 랜덤 위치로 이동
+        if (agent != null && prisonDoor != null)
+            yield return StartCoroutine(MoveToRandomPrisonPosition());
 
-        // 수용소 안에서 제자리에 머물기
-        // (Destroy 하지 않음 - 수용소 안에 수감자가 보임)
+        // NavMeshAgent 비활성화
+        if (agent != null)
+        {
+            agent.ResetPath();
+            agent.velocity = Vector3.zero;
+        }
+    }
+
+    // 외부에서 호출 가능한 랜덤 위치 이동 (수용소 확장 시)
+    public void MoveToRandomPosition(float spread)
+    {
+        if (State != PrisonerState.InPrison) return;
+        StartCoroutine(MoveToRandomPrisonPosition(spread));
+    }
+
+    // ─── 수용소 내 랜덤 위치로 이동 ────────────────────
+    IEnumerator MoveToRandomPrisonPosition()
+    {
+        float spread = PrisonManager.Instance != null
+            ? PrisonManager.Instance.CurrentSpreadRange
+            : 2.5f;
+        yield return StartCoroutine(MoveToRandomPrisonPosition(spread));
+    }
+
+    IEnumerator MoveToRandomPrisonPosition(float spread)
+    {
+        if (agent == null || prisonDoor == null) yield break;
+
+        // NavMeshAgent 재활성화 (InPrison 상태에서 이동)
+        if (!agent.enabled) agent.enabled = true;
+
+        int maxAttempts = 10;
+        for (int attempt = 0; attempt < maxAttempts; attempt++)
+        {
+            Vector3 randomOffset = new Vector3(
+                Random.Range(-spread, spread),
+                0f,
+                Random.Range(-spread, spread));
+            Vector3 targetPos = prisonDoor.position + randomOffset;
+
+            UnityEngine.AI.NavMeshHit hit;
+            if (UnityEngine.AI.NavMesh.SamplePosition(
+                targetPos, out hit, 2f,
+                UnityEngine.AI.NavMesh.AllAreas))
+            {
+                agent.SetDestination(hit.position);
+
+                float timeout = 5f;
+                while (timeout > 0f)
+                {
+                    if (!agent.pathPending &&
+                        agent.remainingDistance <= agent.stoppingDistance + 0.3f)
+                        yield break;
+                    timeout -= Time.deltaTime;
+                    yield return null;
+                }
+                yield break;
+            }
+        }
     }
 
     void AttachHandcuffs()
@@ -240,9 +298,9 @@ public class Prisoner : MonoBehaviour
         if (requirementText != null)
         {
             if (satisfied)
-                requirementText.text = "complete!";
+                requirementText.text = "Complete!";
             else
-                requirementText.text = $" {HandcuffsRemaining}";  // 남은 수갑 수 표시
+                requirementText.text = HandcuffsRemaining.ToString(); // 숫자만 (아이콘은 Image로)
         }
 
         if (handcuffBadge != null)

@@ -326,6 +326,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1917427429}
     m_Modifications:
+    - target: {fileID: -9013722236405524298, guid: 7a0c5bbb0dea70e4ab51371bb16a2cc1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a0c5bbb0dea70e4ab51371bb16a2cc1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.12923193
@@ -366,6 +370,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5906794105842448948, guid: 7a0c5bbb0dea70e4ab51371bb16a2cc1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -2732162109813522793, guid: 7a0c5bbb0dea70e4ab51371bb16a2cc1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -373,6 +381,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7a0c5bbb0dea70e4ab51371bb16a2cc1, type: 3}
       propertyPath: m_Name
       value: Conveyor_Long
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a0c5bbb0dea70e4ab51371bb16a2cc1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6469009360647919578, guid: 7a0c5bbb0dea70e4ab51371bb16a2cc1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1668,7 +1684,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &505667821
 Transform:
@@ -2117,7 +2133,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &619541650
 Transform:
@@ -2389,6 +2405,7 @@ MonoBehaviour:
   costText: {fileID: 1506431230}
   progressBar: {fileID: 1599707058}
   zoneVisual: {fileID: 149385225}
+  drainAmountPerTick: 5
   drainInterval: 0.01
   onUpgradeComplete:
     m_PersistentCalls:
@@ -3046,10 +3063,12 @@ MonoBehaviour:
   expandUpgradeZone: {fileID: 1332324026}
   expandUnlockThreshold: 10
   prisonObject: {fileID: 1841520148}
-  expandedPosition: {x: 32.89, y: -2.14, z: -5}
+  expandedPosition: {x: 11.44, y: -1.74, z: -13.53}
   expandedRotation: {x: 0, y: 0, z: 0}
   expandedScale: {x: 2, y: 1, z: 2}
   expandAnimDuration: 0.5
+  normalSpreadRange: 2.5
+  expandedSpreadRange: 5
 --- !u!4 &905471947
 Transform:
   m_ObjectHideFlags: 0
@@ -3160,7 +3179,7 @@ Transform:
   m_GameObject: {fileID: 932500969}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.30077, y: 37.622696, z: -84.459305}
+  m_LocalPosition: {x: 20.86, y: 37.622696, z: -84.459305}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3281,6 +3300,7 @@ MonoBehaviour:
   costText: {fileID: 1830376398}
   progressBar: {fileID: 147804776}
   zoneVisual: {fileID: 94773925}
+  drainAmountPerTick: 5
   drainInterval: 0.005
   onUpgradeComplete:
     m_PersistentCalls:
@@ -5554,6 +5574,7 @@ MonoBehaviour:
   costText: {fileID: 1149170307}
   progressBar: {fileID: 2082443532}
   zoneVisual: {fileID: 2091952474}
+  drainAmountPerTick: 5
   drainInterval: 0.005
   onUpgradeComplete:
     m_PersistentCalls:
@@ -5797,9 +5818,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4720645490254443903, guid: a9b552b8d044825408c22f353326a4a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3889078808948844166, guid: a9b552b8d044825408c22f353326a4a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a9b552b8d044825408c22f353326a4a9, type: 3}
       propertyPath: m_Name
       value: Machn_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a9b552b8d044825408c22f353326a4a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1247902292365898127, guid: a9b552b8d044825408c22f353326a4a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780453017561135042, guid: a9b552b8d044825408c22f353326a4a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710503913111709017, guid: a9b552b8d044825408c22f353326a4a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535863056255087742, guid: a9b552b8d044825408c22f353326a4a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341456057217573801, guid: a9b552b8d044825408c22f353326a4a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812229424637953576, guid: a9b552b8d044825408c22f353326a4a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6113,7 +6170,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1454666336
 BoxCollider:
@@ -6967,7 +7024,8 @@ MonoBehaviour:
   costText: {fileID: 2000326007}
   progressBar: {fileID: 1352272808}
   zoneVisual: {fileID: 690854032}
-  drainInterval: 0.01
+  drainAmountPerTick: 5
+  drainInterval: 0.001
   onUpgradeComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -7749,6 +7807,7 @@ MonoBehaviour:
   costText: {fileID: 489620361}
   progressBar: {fileID: 1294862564}
   zoneVisual: {fileID: 522860342}
+  drainAmountPerTick: 5
   drainInterval: 0.005
   onUpgradeComplete:
     m_PersistentCalls:
@@ -8144,7 +8203,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &2005743515
 BoxCollider:

@@ -3,23 +3,39 @@
   "WorkspaceRootPath": "C:\\UnityProjects\\SUPERCENT_Assignment\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|c:\\unityprojects\\supercent_assignment\\assets\\scripts\\prison\\prisonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\prison\\prisonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|C:\\UnityProjects\\SUPERCENT_Assignment\\assets\\scripts\\prisoner\\prisonerqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\prisoner\\prisonerqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|C:\\UnityProjects\\SUPERCENT_Assignment\\assets\\scripts\\prisoner\\prisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\prisoner\\prisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|c:\\unityprojects\\supercent_assignment\\assets\\scripts\\worker\\workerspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\worker\\workerspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|C:\\UnityProjects\\SUPERCENT_Assignment\\assets\\scripts\\zones\\moneyzoneupgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\zones\\moneyzoneupgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|C:\\UnityProjects\\SUPERCENT_Assignment\\assets\\scripts\\core\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\core\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|c:\\unityprojects\\supercent_assignment\\assets\\scripts\\prison\\prisonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\prison\\prisonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|C:\\UnityProjects\\SUPERCENT_Assignment\\assets\\scripts\\quarry\\quarryrock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quarry\\quarryrock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|c:\\unityprojects\\supercent_assignment\\assets\\scripts\\worker\\quarryworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|C:\\UnityProjects\\SUPERCENT_Assignment\\assets\\scripts\\worker\\quarryworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\worker\\quarryworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|c:\\unityprojects\\supercent_assignment\\assets\\scripts\\zones\\setterzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|C:\\UnityProjects\\SUPERCENT_Assignment\\assets\\scripts\\zones\\setterzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\zones\\setterzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -43,20 +59,8 @@
       "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playertoolcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|C:\\UnityProjects\\SUPERCENT_Assignment\\assets\\scripts\\core\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\core\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|C:\\UnityProjects\\SUPERCENT_Assignment\\assets\\scripts\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|C:\\UnityProjects\\SUPERCENT_Assignment\\assets\\scripts\\prisoner\\prisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\prisoner\\prisoner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|C:\\UnityProjects\\SUPERCENT_Assignment\\assets\\scripts\\prisoner\\prisonerqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\prisoner\\prisonerqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{914EE10D-907E-BA7A-7890-7780BB09165E}|Assembly-CSharp.csproj|C:\\UnityProjects\\SUPERCENT_Assignment\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,7 +82,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,57 +94,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "WorkerSpawner.cs",
+              "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Worker\\WorkerSpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Worker\\WorkerSpawner.cs",
+              "ToolTip": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Worker\\WorkerSpawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Worker\\WorkerSpawner.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAA7wDAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T17:53:49.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "PrisonManager.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Prison\\PrisonManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Prison\\PrisonManager.cs",
               "ToolTip": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Prison\\PrisonManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Prison\\PrisonManager.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAkwG4AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAkwGAAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-26T16:42:43.459Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "QuarryWorker.cs",
-              "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Worker\\QuarryWorker.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Worker\\QuarryWorker.cs",
-              "ToolTip": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Worker\\QuarryWorker.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Worker\\QuarryWorker.cs",
-              "ViewState": "AgIAALsAAAAAAAAAAAA7wMoAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T16:09:33.111Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PlayerToolController.cs",
-              "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Player\\PlayerToolController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerToolController.cs",
-              "ToolTip": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Player\\PlayerToolController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerToolController.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAmwHgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T12:48:49.775Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 1,
               "Title": "Prisoner.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Prisoner\\Prisoner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Prisoner\\Prisoner.cs",
               "ToolTip": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Prisoner\\Prisoner.cs",
               "RelativeToolTip": "Assets\\Scripts\\Prisoner\\Prisoner.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAADwvzcAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAApwDwAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-25T17:16:35.793Z"
+              "WhenOpened": "2026-04-25T17:16:35.793Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "SetterZone.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Zones\\SetterZone.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Zones\\SetterZone.cs",
@@ -148,12 +141,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Zones\\SetterZone.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-25T13:38:30.757Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-25T13:38:30.757Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "GetterZone.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Zones\\GetterZone.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Zones\\GetterZone.cs",
@@ -165,19 +157,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 0,
               "Title": "PrisonerQueue.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Prisoner\\PrisonerQueue.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Prisoner\\PrisonerQueue.cs",
               "ToolTip": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Prisoner\\PrisonerQueue.cs",
               "RelativeToolTip": "Assets\\Scripts\\Prisoner\\PrisonerQueue.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAcwEoAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAG4AAAAAAAAAAAA7wHcAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-25T13:38:29.491Z"
+              "WhenOpened": "2026-04-25T13:38:29.491Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "PlayerInventory.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Player\\PlayerInventory.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerInventory.cs",
@@ -189,20 +182,57 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Core\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\GameManager.cs",
+              "ToolTip": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Core\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\GameManager.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAA7wEsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T08:41:06.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MoneyZoneUpgrade.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Zones\\MoneyZoneUpgrade.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Zones\\MoneyZoneUpgrade.cs",
               "ToolTip": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Zones\\MoneyZoneUpgrade.cs",
               "RelativeToolTip": "Assets\\Scripts\\Zones\\MoneyZoneUpgrade.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAwwCQAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAANAAAAAAAAAAAAAqwNgAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-25T13:38:28.255Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 13,
+              "Title": "PlayerToolController.cs",
+              "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Player\\PlayerToolController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerToolController.cs",
+              "ToolTip": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Player\\PlayerToolController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerToolController.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAmwHgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T12:48:49.775Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "QuarryWorker.cs",
+              "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Worker\\QuarryWorker.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Worker\\QuarryWorker.cs",
+              "ToolTip": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Worker\\QuarryWorker.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Worker\\QuarryWorker.cs",
+              "ViewState": "AgIAALsAAAAAAAAAAAA7wMoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T16:09:33.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "QuarryRock.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Quarry\\QuarryRock.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Quarry\\QuarryRock.cs",
@@ -210,12 +240,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Quarry\\QuarryRock.cs",
               "ViewState": "AgIAAJ0AAAAAAAAAAAA7wKYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-25T12:05:31.318Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-25T12:05:31.318Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "ObjectPool.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\ObjectPooling\\ObjectPool.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ObjectPooling\\ObjectPool.cs",
@@ -227,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "PrisonDoor.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Prison\\PrisonDoor.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Prison\\PrisonDoor.cs",
@@ -239,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "QuarryArea.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Quarry\\QuarryArea.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Quarry\\QuarryArea.cs",
@@ -251,19 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Core\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\GameManager.cs",
-              "ToolTip": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Core\\GameManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Core\\GameManager.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAA7wEMAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-26T08:41:06.81Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "UIManager.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\UI\\UIManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UIManager.cs",
@@ -275,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Player\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerController.cs",
@@ -287,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "StackItem.cs",
               "DocumentMoniker": "C:\\UnityProjects\\SUPERCENT_Assignment\\Assets\\Scripts\\Utils\\StackItem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Utils\\StackItem.cs",

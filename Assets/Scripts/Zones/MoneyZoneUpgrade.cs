@@ -28,8 +28,10 @@ public class MoneyZoneUpgrade : MonoBehaviour
     public GameObject zoneVisual;       // 반투명 큐브
 
     [Header("Drain Settings")]
-    [Tooltip("돈 차감 속도 (낮을수록 빠름)")]
-    public float drainInterval = 0.08f;
+    [Tooltip("한 번에 차감할 금액")]
+    public int drainAmountPerTick = 5;
+    [Tooltip("차감 주기 (초)")]
+    public float drainInterval = 0.05f;
 
     [Header("Events")]
     public UnityEvent onUpgradeComplete;  // 완료 시 호출
@@ -108,9 +110,9 @@ public class MoneyZoneUpgrade : MonoBehaviour
         if (drainCoroutine != null) StopCoroutine(drainCoroutine);
     }
 
-    // 돈 블록 1개 = 10원이므로 10원마다 블록 1개 제거
+    // 돈 블록 1개 = 10원
     private const int moneyPerBlock = 10;
-    private int pendingDrain = 0; // 아직 블록으로 차감 안 된 누적 금액
+    private int pendingDrain = 0;
 
     IEnumerator DrainMoneyLoop()
     {
@@ -118,15 +120,28 @@ public class MoneyZoneUpgrade : MonoBehaviour
         {
             if (GameManager.Instance != null && GameManager.Instance.CanAfford(1))
             {
-                // GameManager에서 1원 차감
-                GameManager.Instance.SpendMoney(1);
-                moneyInvested++;
-                pendingDrain++;
+                // 한 번에 drainAmountPerTick원 차감
+                int actualDrain = Mathf.Min(
+                    drainAmountPerTick,
+                    upgradeCost - (int)moneyInvested);  // 초과 차감 방지
+                actualDrain = Mathf.Min(
+                    actualDrain,
+                    GameManager.Instance.totalMoney);    // 보유금 초과 방지
 
-                // 10원마다 등의 돈 블록 1개 제거
-                if (pendingDrain >= moneyPerBlock)
+                if (actualDrain <= 0)
                 {
-                    pendingDrain = 0;
+                    yield return new WaitForSeconds(0.1f);
+                    continue;
+                }
+
+                GameManager.Instance.SpendMoney(actualDrain);
+                moneyInvested += actualDrain;
+                pendingDrain += actualDrain;
+
+                // 10원마다 블록 1개 제거
+                while (pendingDrain >= moneyPerBlock)
+                {
+                    pendingDrain -= moneyPerBlock;
                     if (playerInZone != null && playerInZone.HasMoney)
                         playerInZone.RemoveMoney();
                 }
@@ -143,17 +158,15 @@ public class MoneyZoneUpgrade : MonoBehaviour
 
                 if (moneyInvested >= upgradeCost)
                 {
-                    // 남은 블록도 모두 제거
+                    // 남은 블록 모두 제거
                     while (playerInZone != null && playerInZone.HasMoney)
                         playerInZone.RemoveMoney();
-
                     CompleteUpgrade();
                     yield break;
                 }
             }
             else
             {
-                // 돈 부족 → 대기
                 yield return new WaitForSeconds(0.1f);
                 continue;
             }

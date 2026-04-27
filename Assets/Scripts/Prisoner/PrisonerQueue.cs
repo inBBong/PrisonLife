@@ -84,6 +84,10 @@ public class PrisonerQueue : MonoBehaviour
 
         p.Initialize(this, spawnPos, waypoints, prisonDoor, moneyGetterZone);
         queue.Add(p);
+
+        // 스폰 시 이미 수갑이 있으면 즉시 분배 시작
+        if (handcuffSetterZone != null && handcuffSetterZone.StoredCount > 0)
+            StartCoroutine(DistributeHandcuffs());
     }
 
     // 수갑 Setter존 수갑 수 변경 시 호출
@@ -136,5 +140,7 @@ public class PrisonerQueue : MonoBehaviour
     public void OnPrisonerEnteredPrison(Prisoner p)
     {
         PrisonManager.Instance?.AddPrisoner();
+        // 수용소 안 수감자 목록에 등록 (확장 시 재배치용)
+        PrisonManager.Instance?.RegisterPrisoner(p);
     }
 }
