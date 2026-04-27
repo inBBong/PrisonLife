@@ -15,11 +15,19 @@ public class QuarryArea : MonoBehaviour
     public float heightVariance = 0.1f;
     public float scaleVariance = 0.2f;
 
+    [Header("Grid Offset")]
+    [Tooltip("QuarryArea 위치는 고정하고 돌 그리드만 이동")]
+    public Vector3 gridOffset = Vector3.zero;
+
     [Header("Respawn")]
     public float respawnDelay = 4f;
 
     [Header("Quarry Boundary")]
     public BoxCollider quarryBoundary;
+
+    [Header("Rock Container")]
+    [Tooltip("돌들의 부모 오브젝트 (QuarryArea 스케일 영향 안 받음)")]
+    public Transform rockContainer;
 
     private List<Vector3> spawnPositions = new List<Vector3>();
     private HashSet<int> emptySlots = new HashSet<int>();
@@ -40,7 +48,7 @@ public class QuarryArea : MonoBehaviour
     void GenerateSpawnGrid()
     {
         spawnPositions.Clear();
-        Vector3 origin = transform.position;
+        Vector3 origin = transform.position + gridOffset;
         float startX = -(gridWidth - 1) * gridSpacingX * 0.5f;
         float startZ = -(gridHeight - 1) * gridSpacingZ * 0.5f;
 
@@ -73,7 +81,7 @@ public class QuarryArea : MonoBehaviour
         if (ObjectPool.Instance != null)
         {
             rock = ObjectPool.Instance.Get(ROCK_TAG, pos, rot);
-            //Debug.Log($"[QuarryArea] 풀에서 꺼냄: {(rock != null ? rock.name : "NULL")}");
+            Debug.Log($"[QuarryArea] 풀에서 꺼냄: {(rock != null ? rock.name : "NULL")}");
         }
 
         // 풀에서 못 가져왔으면 직접 생성
@@ -86,26 +94,38 @@ public class QuarryArea : MonoBehaviour
 
         rock.transform.position = pos;
         rock.transform.rotation = rot;
-        rock.transform.localScale = Vector3.one * scale;
-        rock.transform.SetParent(transform);
         rock.name = $"Rock_{index}";
 
-        // QuarryArea 참조 업데이트
+        // QuarryArea 스케일 영향 받지 않도록 부모 설정 안 함
+        // 대신 씬 루트에 두거나 별도 컨테이너에 넣기
+        if (rockContainer != null)
+            rock.transform.SetParent(rockContainer);
+        else
+            rock.transform.SetParent(null); // 씬 루트
+
+        // 스케일은 항상 원본 유지
+        rock.transform.localScale = Vector3.one * scale;
+
+        // QuarryRock에 QuarryArea 직접 주입 (부모가 아니므로 GetComponentInParent 불가)
         QuarryRock qr = rock.GetComponent<QuarryRock>();
-        if (qr != null) qr.OnSpawn();
+        if (qr != null)
+        {
+            qr.SetParentArea(this);
+            qr.OnSpawn();
+        }
 
         emptySlots.Remove(index);
-        //Debug.Log($"[QuarryArea] Rock_{index} 스폰 완료");
+        Debug.Log($"[QuarryArea] Rock_{index} 스폰 완료");
     }
 
     public void OnRockCollected(QuarryRock rock)
     {
         string[] parts = rock.gameObject.name.Split('_');
-        //Debug.Log($"[QuarryArea] 바위 수집: {rock.gameObject.name}, parts: {parts.Length}");
+        Debug.Log($"[QuarryArea] 바위 수집: {rock.gameObject.name}, parts: {parts.Length}");
 
         if (parts.Length >= 2 && int.TryParse(parts[1], out int idx))
         {
-            //Debug.Log($"[QuarryArea] 슬롯 {idx} 리스폰 예약");
+            Debug.Log($"[QuarryArea] 슬롯 {idx} 리스폰 예약");
             emptySlots.Add(idx);
             StartCoroutine(RespawnAfterDelay(idx));
         }
@@ -120,14 +140,13 @@ public class QuarryArea : MonoBehaviour
     IEnumerator RespawnAnySlot()
     {
         yield return new WaitForSeconds(respawnDelay);
-        // 전체 슬롯 중 비어있는 곳 찾아서 리스폰
+        Transform container = rockContainer != null ? rockContainer : transform;
         for (int i = 0; i < spawnPositions.Count; i++)
         {
-            // 해당 슬롯에 바위가 없으면 리스폰
             bool hasRock = false;
-            foreach (Transform child in transform)
+            foreach (Transform child in container)
             {
-                if (child.gameObject.name == $"Rock_{i}")
+                if (child.gameObject.name == $"Rock_{i}" && child.gameObject.activeSelf)
                 {
                     hasRock = true;
                     break;

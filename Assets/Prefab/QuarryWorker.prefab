@@ -193,8 +193,8 @@ MonoBehaviour:
   stoneStackAnchor: {fileID: 5794925585781942903}
   rockStackPrefab: {fileID: 5894040535208267504, guid: c90b882393769e547816fe2900dcedad, type: 3}
   rockStackPoolTag: RockStack
-  itemSpacingY: 0.18
-  stackAnimSpeed: 8
+  itemSpacingY: 0.24
+  stackAnimSpeed: 1000
   animator: {fileID: 8753704637243991258}
 --- !u!95 &8753704637243991258
 Animator:

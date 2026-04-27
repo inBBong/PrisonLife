@@ -28,6 +28,12 @@ public class QuarryRock : MonoBehaviour, IPoolable
             originalColor = rockRenderer.material.color;
     }
 
+    // QuarryArea가 자식이 아닌 경우 직접 주입
+    public void SetParentArea(QuarryArea area)
+    {
+        parentArea = area;
+    }
+
     // ─── IPoolable 구현 ───────────────────────────────────
     public void OnSpawn()
     {
@@ -39,7 +45,10 @@ public class QuarryRock : MonoBehaviour, IPoolable
         if (rockRenderer != null)
             rockRenderer.material.color = originalColor;
 
-        parentArea = GetComponentInParent<QuarryArea>();
+        // parentArea가 없을 때만 자동 탐색 (SetParentArea로 주입된 경우 유지)
+        if (parentArea == null)
+            parentArea = GetComponentInParent<QuarryArea>();
+
         StartCoroutine(PopIn());
     }
 
@@ -61,8 +70,24 @@ public class QuarryRock : MonoBehaviour, IPoolable
         if (!other.CompareTag("Player")) return;
 
         PlayerInventory inv = other.GetComponent<PlayerInventory>();
-        if (inv == null || !inv.CanMine || !inv.IsInQuarry) return;
+        if (inv == null || !inv.IsInQuarry) return;
 
+        // 수갑 소지 중이면 채굴 불가
+        if (inv.HasHandcuffs) return;
+
+        StartCoroutine(MineWithCooldown(inv));
+    }
+
+    // MiningRangeCollider에서 호출
+    public void CollectByPlayer(PlayerInventory inv)
+    {
+        if (isCollected || isOnCooldown) return;
+        if (inv == null || !inv.IsInQuarry) return;
+
+        // 수갑 소지 중이면 채굴 불가
+        if (inv.HasHandcuffs) return;
+
+        // Max여도 채굴 모션은 실행 (MineWithCooldown 내부에서 처리)
         StartCoroutine(MineWithCooldown(inv));
     }
 
@@ -79,7 +104,7 @@ public class QuarryRock : MonoBehaviour, IPoolable
 
         yield return new WaitForSeconds(cooldown);
 
-        if (inv == null || !inv.CanMine || !inv.IsInQuarry)
+        if (inv == null || !inv.IsInQuarry)
         {
             isOnCooldown = false;
             if (rockRenderer != null)
@@ -87,19 +112,22 @@ public class QuarryRock : MonoBehaviour, IPoolable
             yield break;
         }
 
-        bool added = inv.AddStone();
-        if (added)
+        // 돌 캐는 모션은 항상 실행
+        // Max일 경우 인벤토리에 추가만 안 함
+        if (!inv.StoneFull)
+            inv.AddStone();
+
+        // Max 표시
+        if (inv.StoneFull)
         {
-            isCollected = true;
-            parentArea?.OnRockCollected(this);
-            StartCoroutine(CollectAnimation());
+            MaxIndicatorUI maxUI = inv.GetComponentInChildren<MaxIndicatorUI>();
+            if (maxUI != null) maxUI.ShowMax();
         }
-        else
-        {
-            isOnCooldown = false;
-            if (rockRenderer != null)
-                rockRenderer.material.color = originalColor;
-        }
+
+        // 돌은 항상 사라짐
+        isCollected = true;
+        parentArea?.OnRockCollected(this);
+        StartCoroutine(CollectAnimation());
     }
 
     IEnumerator CollectAnimation()

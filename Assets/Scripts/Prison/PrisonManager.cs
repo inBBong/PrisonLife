@@ -35,7 +35,7 @@ public class PrisonManager : MonoBehaviour
     public int CurrentCount { get; private set; }
     public int MaxCapacity { get; private set; }
     public bool IsFull => CurrentCount >= MaxCapacity;
-
+    private bool expandZoneOff=false;
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -72,10 +72,11 @@ public class PrisonManager : MonoBehaviour
 
         // 수감자 10명 달성 시 확장 존 활성화
         if (CurrentCount >= expandUnlockThreshold && expandUpgradeZone != null
-            && !expandUpgradeZone.gameObject.activeSelf)
+            && !expandUpgradeZone.gameObject.activeSelf&&!expandZoneOff)
         {
             expandUpgradeZone.Unlock();
             Debug.Log("[PrisonManager] 수용소 확장 존 활성화!");
+            expandZoneOff=true;
         }
 
         return true;

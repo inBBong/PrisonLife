@@ -182,11 +182,11 @@ MonoBehaviour:
   moveSpeed: 3
   handcuffGetterZone: {fileID: 0}
   handcuffSetterZone: {fileID: 0}
-  handcuffStackAnchor: {fileID: 0}
-  handcuffPrefab: {fileID: 0}
+  handcuffStackAnchor: {fileID: 130076169034383294}
+  handcuffPrefab: {fileID: 7253137693296870230, guid: 61514a357e728ad478ed41f9c483901b, type: 3}
   handcuffPoolTag: Handcuff
   itemSpacingY: 0.12
-  stackAnimSpeed: 8
+  stackAnimSpeed: 1000
   animator: {fileID: -1512513697908439345}
 --- !u!95 &-1512513697908439345
 Animator:

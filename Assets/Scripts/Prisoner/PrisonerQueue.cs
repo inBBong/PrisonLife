@@ -21,9 +21,14 @@ public class PrisonerQueue : MonoBehaviour
     [Header("Waypoints")]
     public Transform[] waypoints;
 
+    [Header("Handcuff Distribution")]
+    public float handcuffGiveInterval = 0.4f;
+
     private List<Prisoner> queue = new List<Prisoner>();
     private float spawnTimer = 0f;
     private bool initialized = false;
+    private bool isProcessingDeparture = false;
+    private bool isDistributing = false;
 
     void Start()
     {
@@ -50,6 +55,8 @@ public class PrisonerQueue : MonoBehaviour
     void Update()
     {
         if (!initialized) return;
+        if (isProcessingDeparture) return;
+
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= spawnInterval)
         {
@@ -68,7 +75,6 @@ public class PrisonerQueue : MonoBehaviour
         int slotIndex = queue.Count;
         Vector3 spawnPos = queueSlots[slotIndex].position;
 
-        // waypoints[0] 방향을 바라보며 스폰
         Quaternion spawnRot = Quaternion.identity;
         if (waypoints != null && waypoints.Length > 0 && waypoints[0] != null)
         {
@@ -84,50 +90,142 @@ public class PrisonerQueue : MonoBehaviour
 
         p.Initialize(this, spawnPos, waypoints, prisonDoor, moneyGetterZone);
         queue.Add(p);
+        UpdateQueuePriorities();
 
-        // 스폰 시 이미 수갑이 있으면 즉시 분배 시작
-        if (handcuffSetterZone != null && handcuffSetterZone.StoredCount > 0)
+        if (handcuffSetterZone != null && handcuffSetterZone.StoredCount > 0 && !isDistributing)
             StartCoroutine(DistributeHandcuffs());
     }
 
-    // 수갑 Setter존 수갑 수 변경 시 호출
+    void UpdateQueuePriorities()
+    {
+        for (int i = 0; i < queue.Count; i++)
+        {
+            if (queue[i] == null) continue;
+            var agent = queue[i].GetComponent<UnityEngine.AI.NavMeshAgent>();
+            if (agent != null)
+                agent.avoidancePriority = 20 + i * 10;
+        }
+    }
+
     void OnHandcuffCountChanged(int handcuffCount)
     {
         if (handcuffCount <= 0) return;
+        if (isDistributing) return;
         StartCoroutine(DistributeHandcuffs());
     }
 
-    // ─── 핵심: 수갑을 1개씩 수감자에게 분배 ──────────────
+    // ─── 수갑 분배 ────────────────────────────────────────
     IEnumerator DistributeHandcuffs()
     {
-        // 짧은 딜레이로 중복 호출 방지
-        yield return new WaitForSeconds(0.05f);
+        if (isDistributing) yield break;
+        isDistributing = true;
 
-        while (handcuffSetterZone.StoredCount > 0 && queue.Count > 0)
+    try_distribute:
+
+        // 수감자 없으면 종료
+        if (queue.Count == 0)
         {
-            Prisoner frontPrisoner = queue[0];
+            isDistributing = false;
+            yield break;
+        }
 
-            // 맨 앞 수감자에게 수갑 1개 전달
-            if (frontPrisoner != null && frontPrisoner.IsWaiting)
+        Prisoner frontPrisoner = queue[0];
+        if (frontPrisoner == null || !frontPrisoner.IsWaiting)
+        {
+            isDistributing = false;
+            yield break;
+        }
+
+        // ① 맨 앞 수감자가 Idle 될 때까지 대기 (최초 1회)
+        yield return new WaitUntil(() =>
+            frontPrisoner == null ||
+            !frontPrisoner.IsWaiting ||
+            IsPrisonerIdle(frontPrisoner));
+
+        if (frontPrisoner == null || !frontPrisoner.IsWaiting)
+        {
+            isDistributing = false;
+            yield break;
+        }
+
+        // ② 수감자 요구량 충족될 때까지 수갑 1개씩 전달
+        while (frontPrisoner != null &&
+               frontPrisoner.IsWaiting &&
+               frontPrisoner.HandcuffsRemaining > 0)
+        {
+            // 수갑이 없으면 폴링으로 대기
+            while (handcuffSetterZone.StoredCount <= 0)
             {
-                handcuffSetterZone.TakeItem();
-                frontPrisoner.ReceiveHandcuff();
+                yield return new WaitForSeconds(0.1f);
 
-                // 수갑 요구량이 다 충족됐으면 수감자 처리
-                if (frontPrisoner.HandcuffsRemaining <= 0)
+                // 대기 중 수감자 상태 변경 확인
+                if (frontPrisoner == null || !frontPrisoner.IsWaiting)
                 {
-                    frontPrisoner.Handcuff();
-                    queue.RemoveAt(0);
-                    UpdateQueuePositions();
+                    isDistributing = false;
+                    yield break;
                 }
             }
-            else
-            {
-                break;
-            }
 
-            yield return new WaitForSeconds(0.15f);
+            // 수갑 1개 전달
+            handcuffSetterZone.TakeItem();
+            frontPrisoner.ReceiveHandcuff();
+            yield return new WaitForSeconds(handcuffGiveInterval);
         }
+
+        // ③ 요구량 충족 → 수감자 출발
+        if (frontPrisoner != null && frontPrisoner.IsWaiting &&
+            frontPrisoner.HandcuffsRemaining <= 0)
+        {
+            isProcessingDeparture = true;
+            frontPrisoner.Handcuff();
+            queue.RemoveAt(0);
+
+            yield return StartCoroutine(WaitAndMoveQueue(frontPrisoner));
+            isProcessingDeparture = false;
+        }
+
+        // ④ 다음 수감자 처리
+        goto try_distribute;
+    }
+
+    IEnumerator WaitAndMoveQueue(Prisoner departedPrisoner)
+    {
+        if (queueSlots.Length > 0)
+        {
+            yield return new WaitUntil(() =>
+                departedPrisoner == null ||
+                Vector3.Distance(departedPrisoner.transform.position,
+                    queueSlots[0].position) >= 2f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        UpdateQueuePositions();
+
+        if (queue.Count > 0)
+        {
+            Prisoner nextPrisoner = queue[0];
+            yield return new WaitUntil(() =>
+                nextPrisoner == null ||
+                !nextPrisoner.IsWaiting ||
+                IsAtSlot0(nextPrisoner));
+        }
+    }
+
+    bool IsAtSlot0(Prisoner p)
+    {
+        if (p == null || queueSlots.Length == 0) return true;
+        return Vector3.Distance(p.transform.position, queueSlots[0].position) <= 0.5f;
+    }
+
+    bool IsPrisonerIdle(Prisoner p)
+    {
+        if (p == null) return true;
+        Animator anim = p.GetComponent<Animator>();
+        if (anim == null) return true;
+        return anim.GetFloat("Speed") < 0.1f;
     }
 
     void UpdateQueuePositions()
@@ -135,12 +233,12 @@ public class PrisonerQueue : MonoBehaviour
         for (int i = 0; i < queue.Count; i++)
             if (queueSlots.Length > i)
                 queue[i].UpdateWaitPosition(queueSlots[i].position);
+        UpdateQueuePriorities();
     }
 
     public void OnPrisonerEnteredPrison(Prisoner p)
     {
         PrisonManager.Instance?.AddPrisoner();
-        // 수용소 안 수감자 목록에 등록 (확장 시 재배치용)
         PrisonManager.Instance?.RegisterPrisoner(p);
     }
 }
