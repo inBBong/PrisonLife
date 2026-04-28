@@ -144,6 +144,11 @@ public class HandcuffDeliveryWorker : MonoBehaviour
             {
                 carriedHandcuffs++;
                 SpawnHandcuffVisual();
+
+                // 수갑 줍는 소리
+                if (SoundManager.Instance != null)
+                    SoundManager.Instance.PlayHandcuffPickup();
+
                 yield return new WaitForSeconds(0.08f);
             }
         }
@@ -160,6 +165,11 @@ public class HandcuffDeliveryWorker : MonoBehaviour
                 handcuffSetterZone.AddItemDirectly();
 
             RemoveTopHandcuffVisual();
+
+            // 수갑 놓는 소리
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.PlayHandcuffDrop();
+
             yield return new WaitForSeconds(0.08f);
         }
 

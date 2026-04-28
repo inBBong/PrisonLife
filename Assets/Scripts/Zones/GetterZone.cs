@@ -42,7 +42,17 @@ public class GetterZone : InteractionZone
             case ItemType.Stone: success = playerInventory.AddStone(); break;
         }
 
-        if (success) TakeItemInternal();
+        if (success)
+        {
+            TakeItemInternal();
+            if (SoundManager.Instance != null)
+            {
+                if (providedItemType == ItemType.Handcuff)
+                    SoundManager.Instance.PlayHandcuffPickup();
+                else if (providedItemType == ItemType.Money)
+                    SoundManager.Instance.PlayMoneyWithdraw();
+            }
+        }
         return success;
     }
 

@@ -40,7 +40,20 @@ public class SetterZone : InteractionZone
             case ItemType.Money: took = playerInventory.RemoveMoney(); break;
         }
 
-        if (took) AddItemInternal();
+        if (took)
+        {
+            AddItemInternal();
+            // 아이템 타입별 소리
+            if (SoundManager.Instance != null)
+            {
+                if (acceptedItemType == ItemType.Stone)
+                    SoundManager.Instance.PlayStoneDrop();
+                else if (acceptedItemType == ItemType.Handcuff)
+                    SoundManager.Instance.PlayHandcuffDrop();
+                else if (acceptedItemType == ItemType.Money)
+                    SoundManager.Instance.PlayMoneyDeposit();
+            }
+        }
         return took;
     }
 

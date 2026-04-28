@@ -45,6 +45,7 @@ public class QuarryWorker : MonoBehaviour
 
     void Start()
     {
+        // 인부마다 시작 시간을 더 많이 분산
         StartCoroutine(WorkLoop());
     }
 
@@ -133,7 +134,8 @@ public class QuarryWorker : MonoBehaviour
     // ─── 워크 루프 ────────────────────────────────────────
     IEnumerator WorkLoop()
     {
-        yield return new WaitForSeconds(Random.Range(0f, 2f));
+        // 인부마다 시작 시간 크게 분산 (0~5초)
+        yield return new WaitForSeconds(Random.Range(0f, 5f));
 
         while (true)
         {
@@ -174,14 +176,15 @@ public class QuarryWorker : MonoBehaviour
 
         while (carriedStones < carryCapacity && elapsed < timeout)
         {
-            // 채석장 내 랜덤 위치로 이동
+            // 채석장 내 랜덤 위치로 이동 (범위 넓게)
             Vector3 randomPos = quarryArea.transform.position +
-                new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f));
+                new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
 
             if (agent != null)
                 agent.SetDestination(randomPos);
 
-            yield return new WaitForSeconds(1f);
+            // 이동 시간도 랜덤하게
+            yield return new WaitForSeconds(Random.Range(0.8f, 1.5f));
             elapsed += 1f;
         }
 
@@ -208,10 +211,12 @@ public class QuarryWorker : MonoBehaviour
     {
         if (agent != null && quarryArea != null)
         {
+            // 휴식 위치도 더 넓게 분산
             Vector3 restPos = quarryArea.transform.position +
-                new Vector3(Random.Range(-2f, 2f), 0, 3f);
+                new Vector3(Random.Range(-4f, 4f), 0, Random.Range(2f, 5f));
             agent.SetDestination(restPos);
         }
-        yield return new WaitForSeconds(restDuration);
+        // 휴식 시간도 약간 랜덤하게
+        yield return new WaitForSeconds(restDuration + Random.Range(-2f, 2f));
     }
 }

@@ -32,6 +32,10 @@ public class MoneyZoneUpgrade : MonoBehaviour
     public int drainAmountPerTick = 5;
     [Tooltip("차감 주기 (초)")]
     public float drainInterval = 0.05f;
+    [Tooltip("존 활성화 후 상호작용 가능까지 대기 시간")]
+    public float activationDelay = 1.5f;
+
+    private bool isInteractable = false;
 
     [Header("Events")]
     public UnityEvent onUpgradeComplete;  // 완료 시 호출
@@ -44,14 +48,18 @@ public class MoneyZoneUpgrade : MonoBehaviour
     void Start()
     {
         if (startsHidden)
+        {
             SetVisible(false);
+            isInteractable = false;
+        }
         else
+        {
             SetVisible(true);
+            isInteractable = true;
+        }
 
         UpdateUI();
 
-        // unlockOnFirstMoney가 true인 존만 돈 이벤트 구독
-        // 나머지는 체인(nextZones)으로만 열림
         if (startsHidden && unlockOnFirstMoney && GameManager.Instance != null)
             GameManager.Instance.OnMoneyChanged += OnMoneyChanged;
     }
@@ -67,7 +75,7 @@ public class MoneyZoneUpgrade : MonoBehaviour
     {
         if (amount > 0 && startsHidden)
         {
-            Unlock();
+            Unlock();  // Unlock 내부에서 딜레이 처리
             GameManager.Instance.OnMoneyChanged -= OnMoneyChanged;
         }
     }
@@ -77,6 +85,14 @@ public class MoneyZoneUpgrade : MonoBehaviour
     {
         startsHidden = false;
         SetVisible(true);
+        isInteractable = false;
+        StartCoroutine(ActivationDelayCoroutine());
+    }
+
+    IEnumerator ActivationDelayCoroutine()
+    {
+        yield return new WaitForSeconds(activationDelay);
+        isInteractable = true;
     }
 
     void SetVisible(bool visible)
@@ -86,20 +102,13 @@ public class MoneyZoneUpgrade : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"[UpgradeZone] 충돌 감지: {other.gameObject.name}, Tag: {other.tag}");
         if (isCompleted) return;
-        if (!other.CompareTag("Player"))
-        {
-            Debug.Log("[UpgradeZone] Player 태그 아님 → 무시");
-            return;
-        }
+        if (!isInteractable) return;  // 활성화 딜레이 중이면 무시
+        if (!other.CompareTag("Player")) return;
+
         playerInZone = other.GetComponent<PlayerInventory>();
-        if (playerInZone == null)
-        {
-            Debug.LogError("[UpgradeZone] PlayerInventory 없음!");
-            return;
-        }
-        Debug.Log($"[UpgradeZone] 플레이어 진입! 돈: {playerInZone.Money}");
+        if (playerInZone == null) return;
+
         drainCoroutine = StartCoroutine(DrainMoneyLoop());
     }
 
@@ -138,12 +147,16 @@ public class MoneyZoneUpgrade : MonoBehaviour
                 moneyInvested += actualDrain;
                 pendingDrain += actualDrain;
 
-                // 10원마다 블록 1개 제거
+                // 10원마다 블록 1개 제거 + 소리
                 while (pendingDrain >= moneyPerBlock)
                 {
                     pendingDrain -= moneyPerBlock;
                     if (playerInZone != null && playerInZone.HasMoney)
                         playerInZone.RemoveMoney();
+
+                    // 돈 넣는 소리
+                    if (SoundManager.Instance != null)
+                        SoundManager.Instance.PlayMoneyDeposit();
                 }
 
                 // 프로그레스바 업데이트
@@ -178,6 +191,10 @@ public class MoneyZoneUpgrade : MonoBehaviour
     void CompleteUpgrade()
     {
         isCompleted = true;
+
+        // 업그레이드 완료 소리
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.PlayUpgradeComplete();
 
         // 업그레이드 실행
         ApplyUpgrade();

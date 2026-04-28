@@ -1350,7 +1350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: -20}
+  m_AnchoredPosition: {x: 141.4, y: 12.340027}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &368976369
@@ -1748,7 +1748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $100
+  m_text: $50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1817,6 +1817,53 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &490543851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 490543853}
+  - component: {fileID: 490543852}
+  m_Layer: 0
+  m_Name: CameraOptimizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &490543852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490543851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6470e244230473846ae2b5ef72f633d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenWidth: 720
+  screenHeight: 1280
+  targetFrameRate: 60
+--- !u!4 &490543853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490543851}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 103.87439, y: -313.57126, z: 269.2523}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &505667820
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,6 +2616,61 @@ MonoBehaviour:
   handcuffGetterZone: {fileID: 1104296074}
   handcuffSetterZone: {fileID: 1906405521}
   deliveryWorkerUnlockZone: {fileID: 735907731}
+--- !u!1 &639826018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 639826020}
+  - component: {fileID: 639826019}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &639826019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639826018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2b38b0def8b4242908ca4e0764a3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miningLv1: {fileID: 8300000, guid: 9f2b6a9dc2a9807499cd72f235e4aeff, type: 3}
+  miningLv2: {fileID: 8300000, guid: 9f2b6a9dc2a9807499cd72f235e4aeff, type: 3}
+  miningLv3: {fileID: 8300000, guid: cea50051d718fe847b65ae4b900d2737, type: 3}
+  stoneDrop: {fileID: 8300000, guid: bce825b3637662447a59a075a4ddf09a, type: 3}
+  handcuffPickup: {fileID: 8300000, guid: bce825b3637662447a59a075a4ddf09a, type: 3}
+  handcuffDrop: {fileID: 8300000, guid: bce825b3637662447a59a075a4ddf09a, type: 3}
+  prisonerComplete: {fileID: 8300000, guid: bf4b5950147baa949af05d9d7215e91b, type: 3}
+  moneyDeposit: {fileID: 8300000, guid: a1fa344c5dfe0b54c826ae1245e49131, type: 3}
+  moneyWithdraw: {fileID: 8300000, guid: bce825b3637662447a59a075a4ddf09a, type: 3}
+  upgradeComplete: {fileID: 8300000, guid: b46e644e2c803a848929ce5ccc5d9491, type: 3}
+  masterVolume: 1
+--- !u!4 &639826020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639826018}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 115.500946, y: -259.17786, z: 342.53583}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &690854032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2693,6 +2795,7 @@ MonoBehaviour:
   zoneVisual: {fileID: 149385225}
   drainAmountPerTick: 1
   drainInterval: 0.008
+  activationDelay: 1.5
   onUpgradeComplete:
     m_PersistentCalls:
       m_Calls:
@@ -3580,7 +3683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: Tool Upgrade Lv.2
-  upgradeCost: 150
+  upgradeCost: 100
   startsHidden: 1
   unlockOnFirstMoney: 0
   nextZones: []
@@ -3590,6 +3693,7 @@ MonoBehaviour:
   zoneVisual: {fileID: 94773925}
   drainAmountPerTick: 1
   drainInterval: 0.008
+  activationDelay: 1.5
   onUpgradeComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -3602,7 +3706,7 @@ Transform:
   m_GameObject: {fileID: 982671067}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.75, y: 0.481, z: 10.98}
+  m_LocalPosition: {x: 10.75, y: 0.481, z: 14.85}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3748,7 +3852,7 @@ MonoBehaviour:
   handcuffPoolTag: Handcuff
   moneyPoolTag: Money
   itemSpacingY: 0.24
-  stackAnimSpeed: 1000
+  stackAnimSpeed: 500
 --- !u!114 &1064987110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4231,7 +4335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '$200
+  m_text: '$100
 
 '
   m_isRightToLeft: 0
@@ -4450,7 +4554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stoneInput: {fileID: 1138531530}
   handcuffOutput: {fileID: 1104296074}
-  processTimePerStone: 2
+  processTimePerStone: 1
   conveyorItems: []
   beltSpeed: 1
   processingIndicator: {fileID: 0}
@@ -5913,7 +6017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: Prison Expand
-  upgradeCost: 200
+  upgradeCost: 100
   startsHidden: 1
   unlockOnFirstMoney: 0
   nextZones: []
@@ -5923,6 +6027,7 @@ MonoBehaviour:
   zoneVisual: {fileID: 2091952474}
   drainAmountPerTick: 1
   drainInterval: 0.008
+  activationDelay: 1.5
   onUpgradeComplete:
     m_PersistentCalls:
       m_Calls:
@@ -7216,7 +7321,7 @@ Transform:
   m_GameObject: {fileID: 1696522592}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.08, z: -1.59}
+  m_LocalPosition: {x: 0, y: 0.08, z: -1.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7427,6 +7532,7 @@ MonoBehaviour:
   zoneVisual: {fileID: 690854032}
   drainAmountPerTick: 1
   drainInterval: 0.008
+  activationDelay: 1.5
   onUpgradeComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -7439,7 +7545,7 @@ Transform:
   m_GameObject: {fileID: 1735430351}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.75, y: 0.481, z: 10.98}
+  m_LocalPosition: {x: 10.75, y: 0.481, z: 14.85}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7963,7 +8069,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '$150
+  m_text: '$100
 
 '
   m_isRightToLeft: 0
@@ -8328,7 +8434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: Hire Worker
-  upgradeCost: 100
+  upgradeCost: 50
   startsHidden: 1
   unlockOnFirstMoney: 0
   nextZones:
@@ -8339,6 +8445,7 @@ MonoBehaviour:
   zoneVisual: {fileID: 522860342}
   drainAmountPerTick: 1
   drainInterval: 0.008
+  activationDelay: 1.5
   onUpgradeComplete:
     m_PersistentCalls:
       m_Calls:
@@ -8363,7 +8470,7 @@ Transform:
   m_GameObject: {fileID: 1879201480}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.04, y: 0.481, z: 10.98}
+  m_LocalPosition: {x: 21.04, y: 0.481, z: 14.85}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9635,7 +9742,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 90.8
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -9714,3 +9821,5 @@ SceneRoots:
   - {fileID: 1761756278}
   - {fileID: 1958619157}
   - {fileID: 435345211}
+  - {fileID: 639826020}
+  - {fileID: 490543853}

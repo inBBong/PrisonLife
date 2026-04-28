@@ -46,7 +46,7 @@ public class PrisonDoor : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // 수감자 또는 플레이어 감지
-        if (!other.CompareTag("Prisoner") && !other.CompareTag("Player")) return;
+        if (!other.CompareTag("Prisoner")) return;
 
         prisonersInTrigger++;
 

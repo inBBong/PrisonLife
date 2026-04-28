@@ -176,6 +176,10 @@ public class PrisonerQueue : MonoBehaviour
         if (frontPrisoner != null && frontPrisoner.IsWaiting &&
             frontPrisoner.HandcuffsRemaining <= 0)
         {
+            // Complete 소리 재생
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.PlayPrisonerComplete();
+
             isProcessingDeparture = true;
             frontPrisoner.Handcuff();
             queue.RemoveAt(0);

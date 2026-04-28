@@ -55,11 +55,28 @@ public class PlayerInventory : MonoBehaviour
         if (moneyBillPrefab != null) moneyPrefabScale = moneyBillPrefab.transform.localScale;
     }
 
+    private Vector3 lastPlayerPos;
+
     void Update()
     {
-        UpdateStackPositions(stoneVisuals, stoneStackAnchor);
-        UpdateStackPositions(handcuffVisuals, handcuffStackAnchor);
-        UpdateStackPositions(moneyVisuals, moneyStackAnchor);
+        bool isMoving = Vector3.Distance(transform.position, lastPlayerPos) > 0.001f;
+        bool hasItems = stoneVisuals.Count > 0 ||
+                        handcuffVisuals.Count > 0 ||
+                        moneyVisuals.Count > 0;
+
+        if (isMoving || hasItems)
+        {
+            UpdateStackPositions(stoneVisuals, stoneStackAnchor);
+            UpdateStackPositions(handcuffVisuals, handcuffStackAnchor);
+
+            // 돌이 없으면 돈을 돌 앵커 위치에 쌓기
+            Transform moneyAnchor = (stoneVisuals.Count == 0 && stoneStackAnchor != null)
+                ? stoneStackAnchor
+                : moneyStackAnchor;
+            UpdateStackPositions(moneyVisuals, moneyAnchor);
+        }
+
+        lastPlayerPos = transform.position;
     }
 
     void UpdateStackPositions(List<Transform> visuals, Transform anchor)
@@ -87,7 +104,8 @@ public class PlayerInventory : MonoBehaviour
             }
 
             visuals[i].position = Vector3.Lerp(visuals[i].position, targetPos, speed * Time.deltaTime);
-            visuals[i].rotation = Quaternion.Lerp(visuals[i].rotation, targetRot, speed * Time.deltaTime);
+            // 회전은 지연 없이 즉시 따라옴
+            visuals[i].rotation = anchor.rotation;
         }
     }
 
